@@ -81,5 +81,9 @@ export class DataServiceService {
     
     return this.http.delete(this.baseUrl + 'reject-debit-card/'+cardNo);
   }
+  acceptDebitCardRequest(cardNo:number){
+    console.log("here")
+    return this.http.put<any>(this.baseUrl + `approve-debit-card/${cardNo}`,null);
+  }
 }
 

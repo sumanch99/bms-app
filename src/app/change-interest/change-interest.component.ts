@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import swal from 'sweetalert';
 import { InterestPlans } from '../model/interest-plans.model';
 import { DataServiceService } from '../service/data/data-service.service';
 
@@ -13,7 +15,7 @@ export class ChangeInterestComponent implements OnInit {
   successLabel:string=''
   oldRate:number=0;
   interestPlanObj: InterestPlans = new InterestPlans();
-  constructor(private dataService: DataServiceService) { }
+  constructor(private dataService: DataServiceService,private router:Router) { }
 
   ngOnInit(): void {
     this.dataService.getInterestRateList().subscribe(
@@ -35,14 +37,31 @@ export class ChangeInterestComponent implements OnInit {
     this.dataService.postChangedInterestRate(this.interestPlanObj)
       .subscribe(data => {
         console.log(data);
-        
-      })
-      this.successLabel = this.interestPlanObj.plan + " INTEREST RATE SUCCESSFULLY CHANGED TO " + this.interestPlanObj.rate +"%.";
+        swal('Done!','Interest rate changed successfully','success');
+        this.router.navigate(['change-interest']);
+      },
+      error=>{
+        swal('Oops!','Interest rate cannot be changed','error');
+      }
+      )
+      
 
   }
 
   onClickReset(){
     this.successLabel='';
+  }
+
+  getRate(){
+
+    console.log('here');
+    this.interestPlan.forEach(element => {
+      if(element.plan===this.interestPlanObj.plan) {
+        this.oldRate = element.rate;
+      }
+    });
+    console.log(this.oldRate);
+    return this.oldRate;
   }
 
 }

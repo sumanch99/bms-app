@@ -18,7 +18,7 @@
                     <td scope="row" id="data"><a
                             [routerLink]="['/view-account', debitCardRequest.accountNo]">{{debitCardRequest.accountNo}}</a>
                     </td>
-                    <td><button class="btn btn-primary">Grant Debit Card</button>
+                    <td><button class="btn btn-primary" (click)="onClickAcceptDebitCard(debitCardRequest)">Grant Debit Card</button>
                     </td>
                     <td><button class="btn btn-danger" (click)="onClickRejectDebitCard(debitCardRequest)">Reject Debit
                             Card

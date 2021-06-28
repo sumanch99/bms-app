@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import swal from 'sweetalert';
 import { Account } from '../model/account.model';
 import { DataServiceService } from '../service/data/data-service.service';
 
@@ -42,9 +43,11 @@ export class ManageAccountsComponent implements OnInit {
         if(response.status !== 200)
         {
           this.errorMessage=response.message;
+          swal("Oops!", "Account cannot be disabled!", "error");
           console.log('Response status '+response.status);
         }
         else{
+          swal("Done!", "Account disabled successfully!", "success");
           this.router.navigate(['manage-accounts']);
         }
       }
@@ -58,8 +61,10 @@ export class ManageAccountsComponent implements OnInit {
         {
           this.errorMessage=response.message;
           console.log('Response status '+response.status);
+          swal("Oops!", "Account cannot be enabled!", "error");
         }
         else{
+          swal("Done!", "Account enabled successfully!", "success");
           this.router.navigate(['manage-accounts']);
         }
       }

@@ -2,6 +2,7 @@ import { DataServiceService } from './../service/data/data-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import swal from 'sweetalert';
 @Component({
   selector: 'app-deposit-to-branch-funds',
   templateUrl: './deposit-to-branch-funds.component.html',
@@ -23,8 +24,11 @@ export class DepositToBranchFundsComponent implements OnInit {
     console.log(this.ifscCode);
     this.service.depositToBranch(this.ifscCode,this.amount).subscribe(
       response=>{console.log(response);
-        
+        swal("Done!", "Amount added to branch successfully!", "success");
         this.router.navigate(['listBranches']);
+      },
+      error=>{
+        swal("Oops!", "Something went wrong! Amount can't be added", "error");
       }
     )
   }

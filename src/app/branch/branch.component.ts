@@ -3,7 +3,7 @@ import { DataServiceService } from './../service/data/data-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Branch } from '../model/branch.model';
 import { Router } from '@angular/router';
-
+import swal from 'sweetalert';
 @Component({
   selector: 'app-branch',
   templateUrl: './branch.component.html',
@@ -28,11 +28,15 @@ export class BranchComponent implements OnInit {
     //console.log('In list branches,before subscribing');
     //console.log(this.newBranch);
     this.service.addNewBranch(this.newBranch).subscribe(
-      data=>{console.log(data);
+      data=>{
+        console.log(data);
+        swal("Done!", "New Branch added successfully!", "success");
         this.router.navigate(['listBranches']);
+      },
+      error=>{
+        swal("Oops!", "Something went wrong! May be IFSC code already exists.", "error");
       }
-
-    );
+    );  
     
   }
 

@@ -11,15 +11,6 @@
             <div class="alert alert-warning" *ngIf="aadharNo.invalid && aadharNo.dirty">
                 Invalid AADHAR NO. Requirements- Length: 12, cant't start with 0 or 1. <br> Example: 201234567893
             </div>
-
-            <div class="form-group">
-                <label for="accountNumber">Account Number</label>
-                <input ngModel name="accountNumber" type="number" id="accountNumber" class="form-control" required
-                    #accountNumber="ngModel">
-            </div>
-            <div class="alert alert-warning" *ngIf="accountNumber.invalid && accountNumber.dirty">
-                Type in the account number
-            </div>
             <div class="form-group">
                 <label for="phoneNumber">Phone Number</label>
                 <input ngModel name="phoneNumber" id="phoneNumber" type="number" class="form-control" required

@@ -1,0 +1,30 @@
+<div class="container col-sm-9 mr-2 ">
+    <div class="alert alert-warning" *ngIf="errorMessage">{{errorMessage}}</div>
+    <h3 style="text-align: center;">List of Transactions</h3>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-striped mb-0">
+            <thead>
+                <tr>
+                    <th>Amount</th>
+                    <th>From Account</th>
+                    <th>To Account</th>
+                    <th>Transaction Type</th>
+                    <th>Date and Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of transactions">
+                    <td>{{transaction.amount}}</td>
+                    <td><a [routerLink]="['/view-account', transaction.fromAccount]">{{transaction.fromAccount}}</a></td>
+                    <td *ngIf="transaction.toAccount==0"></td>
+                    <td *ngIf="transaction.toAccount!==0"><a [routerLink]="['/view-account', transaction.toAccount]">{{transaction.toAccount}}</a></td>
+                    <td *ngIf="transaction.toAccount==0 && transaction.atmFlag==true">Debit Card</td>
+                    <td *ngIf="transaction.toAccount==0 && transaction.atmFlag==false && transaction.flag==true">Deposit</td>
+                    <td *ngIf="transaction.toAccount!==0">Transfer</td>
+                    <td *ngIf="transaction.toAccount==0 && transaction.atmFlag==false && transaction.flag==false">Withdraw</td>
+                    <td>{{transaction.date | date:'dd/MM/yyyy hh:mm:ss aa zzzz'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

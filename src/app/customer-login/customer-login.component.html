@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-6 bg-light mt-3 p-1" style="text-align: center;border: solid lightblue;">
+            <i class="far fa-user fa-5x"></i><br> <br>
+            <h2 class="text-muted">CUSTOMER LOGIN</h2>
+            <form action="customerDashboard" name="form" modelAttribute="customer" method="POST">
+                <div class="form-group">
+                    <label for="userId">User ID:</label>
+                    <input path="userId" type="text" class="form-control" placeholder="Enter the User ID" id="userId"
+                        name="userId" />
+
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input path="password" type="password" class="form-control" placeholder="Enter the password"
+                        id="password" name="password">
+
+                </div>
+
+
+                <button type="submit" class="btn btn-primary mt-4">LOGIN</button>
+                <button type="reset" class="btn btn-secondary mt-4">RESET</button>
+            </form>
+        </div>
+    </div>
+</div>

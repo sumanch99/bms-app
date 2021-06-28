@@ -1,0 +1,34 @@
+<div class="container-fluid col-sm-9 mr-1 ">
+    <div class="alert alert-warning" *ngIf="errorMessage">{{errorMessage}}</div>
+    <h3 style="text-align: center;">List of Branches</h3>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar ">
+
+        <table class="table table-striped mb-0">
+            <thead id="tHead">
+
+                <tr>
+                    <th>IFSC Code</th>
+                    <th>Branch Name</th>
+                    <th>Address</th>
+                    <th>Pin Code</th>
+                    <th>Branch Fund</th>
+                    <th>
+                      <button class="btn btn-primary" id="add" (click)="addNewBranch()">Add Branch</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let branch of branches">
+                    <td>{{branch.ifscCode}}</td>
+                    <td>{{branch.branchName}}</td>
+                    <td>{{branch.address}}</td>
+                    <td>{{branch.pincode}}</td>
+                    <td>{{branch.branchFund}}</td>
+                    <td><button class="btn btn-primary" id="addToFund" (click)="depositToBranch(branch.ifscCode)">Add To
+                            Branch
+                            Fund</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="p-3" style="text-align: center;">
+    <h3><strong>Give Proper Credentials For Checking Balance Using ATM</strong></h3>
+</div>
+<div class="d-flex justify-content-center">
+<div class="m-1 p-5 border border-info w-25">
+    <form #atmCheckBalanceForm="ngForm" (ngSubmit)="atmCheckBalanceForm.valid && onSubmit(atmCheckBalanceForm)">
+        <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input ngModel name="cardNumber" type="number" class="form-control" id="cardNumber"
+                placeholder="Enter Card Number" required pattern="^[1-9][0-9]{11}$" #cardNumber="ngModel">
+        </div>
+        <div class="alert alert-warning" *ngIf="cardNumber.dirty && cardNumber.invalid">
+            Invalid Card Number.
+        </div>
+        <div class="form-group">
+            <label for="cvvNumber">Cvv Number</label>
+            <input ngModel name="cvvNumber" type="password" class="form-control" id="cvvNumber"
+                placeholder="Enter CVV Number" required pattern="^[0-9]{3}$" #cvvNumber="ngModel">
+        </div>
+        <div class="alert alert-warning" *ngIf="cvvNumber.dirty && cvvNumber.invalid">
+            Invalid CVV Number.
+        </div>
+        <div class="form-group">
+            <label for="pinNumber">PIN Number</label>
+            <input type="password" ngModel name="pinNumber" class="form-control" id="pinNumber"
+                placeholder="Enter PIN Number" required #pinNumber="ngModel" pattern="^[0-9]{4}$">
+        </div>
+        <div class="alert alert-warning" *ngIf="pinNumber.dirty && pinNumber.invalid">
+            Invalid PIN Number.
+        </div>
+        <button type="submit" [disabled]="atmCheckBalanceForm.invalid" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+</div>

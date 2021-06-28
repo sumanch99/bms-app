@@ -1,0 +1,15 @@
+<div class="container col-sm-9 mr-2 mt-5 pt-3 " >
+    <h3 style="text-align: center;">Deposit Amount to branch</h3>
+    <form #addBranchFund = "ngForm" (ngSubmit) ="!addBranchFund.invalid && onSubmit(addBranchFund)">
+        <div class="form-group">
+            <label for="amount">Enter the amount to be deposited</label>
+            <input ngModel name ="amount" id ="amount" type ="number"
+            class="form-control" required min=10000 #amount="ngModel">
+        </div>
+        <div class="alert alert-warning" *ngIf="amount.invalid && amount.dirty">
+            Minimun Amount to be deposited is Rs.10,000
+        </div>
+        <button type="submit" [disabled]="addBranchFund.invalid" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="alert alert-warning" *ngIf="errorMessage">{{errorMessage}}</div>
+</div>

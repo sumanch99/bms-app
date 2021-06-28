@@ -1,0 +1,33 @@
+<div class="container col-sm-9 mr-2">
+    <h3 style="text-align: center;">Pending Loan Requests</h3>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-striped mb-0">
+            <thead>
+                <tr>
+                    <th scope="col">Loan Id</th>
+                    <th scope="col">Loan Type</th>
+                    <th scope="col">Account Number</th>
+                    <th scope="col">Gurantor Acc. No.</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Tenure</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let loan of pendingLoans">
+                    <td scope="row">{{loan.loan_id}}</td>
+                    <td>{{loan.loanCode}}</td>
+                    <td><a [routerLink]="['/view-account', loan.accNo]">{{loan.accNo}}</a></td>
+                    <td><a [routerLink]="['/view-account', loan.gurantorAccNo]">{{loan.gurantorAccNo}}</a></td>
+                    <td>{{loan.amount}}</td>
+                    <td>{{loan.tenure}}</td>
+                    <td><button class="btn btn-primary" (click)="onClickGrantLoan(loan)">Grant</button>
+                    </td>
+                    <td><button class="btn btn-danger" (click)="onClickReject(loan.loan_id)">Reject</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="container col-sm-9 mt-4 mb-5 mr-2 ">
+    <h3 style="text-align:left;">Pending Debit Card Requests</h3>
+    <div *ngIf="debitCardRequestList.length>0;then debitList else noRecord"></div>
+    <ng-template #debitList>
+        <div class="alert alert-success" *ngIf="alertFlag"><strong>{{successLabel}}</strong></div>
+        <table class="table table-responsive-sm w-auto">
+            <thead>
+                <tr>
+                    <th scope="col">Account Number</th>
+
+                    <th>Action</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let debitCardRequest of debitCardRequestList">
+
+                    <td scope="row" id="data"><a
+                            [routerLink]="['/view-account', debitCardRequest.accountNo]">{{debitCardRequest.accountNo}}</a>
+                    </td>
+                    <td><button class="btn btn-primary">Grant Debit Card</button>
+                    </td>
+                    <td><button class="btn btn-danger" (click)="onClickRejectDebitCard(debitCardRequest)">Reject Debit
+                            Card
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+    <ng-template #noRecord><div class="alert alert-danger"><strong>No Records Available!!!</strong></div></ng-template>
+</div>
+<!--<div class="container col-sm-8 mt-4 mb-5 mr-5">
+    <h3>Pending ATM Requests</h3>
+    <div *ngIf="debitCardRequestList.length>0;then debitList else noRecord"></div>
+    <ng-template #debitList>
+        <div class="alert alert-success" *ngIf="alertFlag"><strong>{{successLabel}}</strong></div>
+        <table class="table table-responsive-sm w-auto">
+            <thead>
+                <tr>
+                    <th scope="col">Account Number(Debit Card Requested)</th>
+
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let debitCardRequest of debitCardRequestList">
+
+                    <td scope="row" id="data"><a
+                            [routerLink]="['/view-account', debitCardRequest.accountNo]">{{debitCardRequest.accountNo}}</a>
+                    </td>
+                    <td><button class="btn btn-primary">Grant Debit Card</button>
+                    </td>
+                    <td><button class="btn btn-danger" (click)="onClickRejectDebitCard(debitCardRequest)">Reject Debit
+                            Card
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+    <ng-template #noRecord><div class="alert alert-danger"><strong>No Records Available!!!</strong></div></ng-template>
+</div>-->

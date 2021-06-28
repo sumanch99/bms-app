@@ -1,0 +1,40 @@
+<div class="container col-sm-9 mt-4 mb-5 mr-2">
+  <h3 style="text-align: center;">Add New Branch</h3>
+  <div class="container">
+    <form #addBranchForm="ngForm" (ngSubmit)="!addBranchForm.invalid && onSubmit(addBranchForm)">
+      <div class="form-group">
+        <label for="ifscCode">IFSC Code</label>
+        <input ngModel name="ifscCode" id="ifscCode" type="text" class="form-control" required minlength="11"
+          maxlength="12" pattern="^[A-Z]{4}0[A-Z0-9]{6}$" #ifscCode="ngModel">
+      </div>
+      <div class="alert alert-warning" *ngIf="ifscCode.dirty && ifscCode.invalid">
+        Invalid IFSC Code. Requirements- Length: 11 (Alphanumeric), Begin(4): A-Z, 5th character: 0, End(6): A-Z or 0-9.<br> Example: ACBD0123456
+      </div>
+      <div class="form-group">
+        <label for="branchName">Branch Name</label>
+        <input ngModel name="branchName" id="branchName" type="text" class="form-control" required="required"
+          #branchName="ngModel">
+      </div>
+      <div class="alert alert-warning" *ngIf="branchName.dirty && branchName.invalid">
+        Branch Name can not be blank.
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input ngModel name="address" id="address" type="text" class="form-control" required="required"
+          #address="ngModel">
+      </div>
+      <div class="alert alert-warning" *ngIf="address.dirty && address.invalid">
+        Address can not be blank.
+      </div>
+      <div class="form-group">
+        <label for="pincode">Pin Code</label>
+        <input ngModel name="pincode" id="pincode" type="text" class="form-control" required pattern="^[1-9][0-9]{5}$"
+          #pincode="ngModel">
+      </div>
+      <div class="alert alert-warning" *ngIf="pincode.dirty && pincode.invalid">
+        Invalid Pin Code. Requirements- Length: 6 digits, can not start with 0.
+      </div>
+      <button type="submit" [disabled]="addBranchForm.invalid" class="btn btn-primary">Sumbit</button>
+    </form>
+  </div>
+</div>

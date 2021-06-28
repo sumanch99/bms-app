@@ -1,0 +1,22 @@
+<div class="container col-sm-9 mr-2 ">
+    <div class="alert alert-warning" *ngIf="errorMessage">{{errorMessage}}</div>
+    <h3>List of Interest Plans</h3>
+    <div class="container">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Rate</th>
+                </tr>
+            </thead> 
+            <tbody>
+                <tr *ngFor="let interestPlan of interestPlans">
+                    <td>{{interestPlan.plan}}</td>
+                    <td>{{interestPlan.rate}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

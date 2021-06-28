@@ -1,0 +1,46 @@
+<header class="header">
+    <nav class="navbar navbar-expand-sm navbar-light mb-2 max-width" style="background-color:rgba(0, 0, 0, 0.747);">
+        <div class="container-fluid">
+            <a class="navbar-brand " style="color:white" href="#"> <img
+                    src="https://library.kissclipart.com/20180905/kke/kissclipart-banking-clipart-investment-banking-clip-art-a11ec0af8fbedab7.png"
+                    alt="" width="30" height="24" class="d-inline-block align-text-top"> FEDERAL BANK OF INDIA
+            </a>
+        </div>
+        <ul class="navbar-nav ml-auto">
+            <li><a class="nav-link" *ngIf="aut.logged()===true" routerLink="/admin-Logout"
+                    style="color: wheat;">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container col-sm-3 ml-1 fixed-left">
+        <div class="list-group" *ngIf="aut.logged()===true">
+            <a routerLink='/listBranches' class="list-group-item list-group-item-action list-group-item-dark">Manage
+                Branches</a>
+            <a routerLink='/new-Customer-Account'
+                class="list-group-item list-group-item-action list-group-item-dark">Create New Account</a>
+            <a routerLink="/viewCustomer" class="list-group-item list-group-item-action list-group-item-dark">View
+                Customers</a>
+            <a routerLink="/manage-accounts" class="list-group-item list-group-item-action list-group-item-dark">Manage Accounts</a>
+            <a routerLink='/allTransactions'
+                class="list-group-item list-group-item-action list-group-item-dark">Complete Transaction List</a>
+            <a routerLink="/view-atm-requests" class="list-group-item list-group-item-action list-group-item-dark">Check
+                ATM Request</a>
+            <a routerLink="/view-all-approved-loans"
+                class="list-group-item list-group-item-action list-group-item-dark">View All Approved Loans</a>
+            <a routerLink="/view-pending-loan-request"
+                class="list-group-item list-group-item-action list-group-item-dark">Check Loan Request</a>
+
+            <div class="dropdown">
+                <div class="list-group-item list-group-item-action list-group-item-dark dropdown-toggle"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interest
+                    Rates</div>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a routerLink="/view-interest-plans"
+                        class="list-group-item list-group-item-action list-group-item-dark">View Interest Rates</a>
+                    <a routerLink="/change-interest"
+                        class="list-group-item list-group-item-action list-group-item-dark">Modify Interest Rate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,30 @@
+<div class="container col-sm-9 mr-2 ">
+    <h3 style="text-align: center;">Approved Loans</h3>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        
+        <table class="table table-striped mb-0">
+            <thead>
+                <tr>
+                    <th scope="col">Loan Id</th>
+                    <th scope="col">Loan Type</th>
+                    <th scope="col">Account Number</th>
+                    <th scope="col">Gurantor Acc. No.</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">Tenure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let loan of approvedLoans">
+                    <td scope="row">{{loan.loan_id}}</td>
+                    <td>{{loan.loanCode}}</td>
+                    <td><a [routerLink]="['/view-account', loan.accNo]">{{loan.accNo}}</a></td>
+                    <td><a [routerLink]="['/view-account', loan.gurantorAccNo]">{{loan.gurantorAccNo}}</a></td>
+                    <td>{{loan.amount}}</td>
+                    <td>{{loan.startDate}}</td>
+                    <td>{{loan.tenure}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container mt-2">
+    <div class="alert alert-warning" *ngIf="errorMessage">Enter valid credentials</div>
+    <div class="row justify-content-center">
+
+        <div class="col-sm-6 bg-light mt-5 p-3" style="text-align: center">
+            <i class="fas fa-user fa-5x"></i><br><br>
+            <h2 class="text-muted">ADMIN LOGIN</h2>
+            <form #adminLogin="ngForm" (ngSubmit)="!adminLogin.invalid && onSubmit(adminLogin)">
+                <div class="form-group">
+                    <label for="uid">User ID:</label>
+                    <input ngModel #uid="ngModel" type="text" class="form-control" placeholder="Enter the User ID"
+                        id="uid" name="uid">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="pwd">Password:</label>
+                    <input ngModel #pwd="ngModel" type="password" class="form-control" placeholder="Enter password"
+                        id="pwd" name="pwd">
+                </div>
+                <button type="submit" [disabled]="adminLogin.invalid" class="btn btn-primary"
+                    id="subButn">LOGIN</button>
+            </form>
+
+        </div>
+    </div>
+</div>

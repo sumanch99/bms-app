@@ -1,0 +1,34 @@
+<div class="container-fluid col-sm-9 mr-1 ">
+    <div class="alert alert-warning" *ngIf="errorMessage">{{errorMessage}}</div>
+    <h3 style="text-align: center;">Customer Accounts</h3>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar ">
+        <table class="table table-striped mb-0">
+            <thead id="tHead">
+                <tr>
+                    <th>Account No</th>
+                    <th>Account Type</th>
+                    <th>Balance</th>
+                    <th>IFSC Code</th>
+                    <th>Phone No</th>
+                    <th>Status</th>
+                    <th>
+                      Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let account of accounts">
+                    <td><a [routerLink]="['/view-account', account.accNo]">{{account.accNo}}</a></td>
+                    <td>{{account.accType}}</td>
+                    <td>{{account.balance}}</td>
+                    <td>{{account.ifscCode}}</td>
+                    <td>{{account.phoneNumber}}</td>
+                    <td *ngIf="account.active==true">Enabled</td>
+                    <td *ngIf="account.active==false">Disabled</td>
+                    <td *ngIf="account.active==true"><button class="btn btn-danger" id="disable" (click)="disableAccount(account.accNo)">Disable</button></td>
+                    <td *ngIf="account.active==false"><button class="btn btn-success" id="enable" (click)="enableAccount(account.accNo)">Enable</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

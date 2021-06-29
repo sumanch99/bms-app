@@ -1,5 +1,5 @@
 export class Account{
-    accNo: number=0;
+    accNo: number=2;
 	accType: string='';
 	balance: number=0;
 	active: boolean=false;

@@ -8,13 +8,14 @@ import { Observable } from 'rxjs';
 export class HttpInterceptorService implements HttpInterceptor {
 
     constructor(private aut: AdminAuthenticationService) { }
-    headerString:string=this.aut.provideHeaderString();
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        let headerString=this.aut.provideHeaderString();
+        console.log("Header String:"+headerString)
         if (this.aut.logged() && req.url.indexOf('basicauth') === -1) {
             const authReq = req.clone({
                 headers: new HttpHeaders({
                     'Content-Type': 'application/json',
-                    'Authorization': this.headerString
+                    'Authorization':headerString
                 })
             });
             return next.handle(authReq);

@@ -1,0 +1,47 @@
+<div class="p-3" style="text-align: center;">
+    <h3><strong>APPLY FOR RD</strong></h3>
+</div>
+<div class="d-flex justify-content-center">
+    <div class="m-3 p-3 border border-info w-25">
+        <form #applyForRdForm="ngForm" (ngSubmit)="applyForRdForm.valid && onSubmit()">
+            <div class="form-group">
+                <label class="alert alert-success"><strong>Interest Rate Of RD is {{interestPlan.rate}}%</strong>
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="accountNumber">Select Account No</label>
+                <select ngModel name="accountNumber" class="form-control" required aria-label="Default select example"
+                    #accountNumber="ngModel" [(ngModel)]="rd.accountNumber">
+                    <option selected>Select Account Number</option>
+                    <option *ngFor="let account of accounts">{{account.accNo}}</option>
+                </select>
+            </div>
+            <div class="alert alert-warning" *ngIf="accountNumber.dirty && accountNumber.invalid">
+                Please select account.
+            </div>
+            <div class="form-group">
+                <label for="monthlyAmount">Monthly Amount</label>
+                <input ngModel name="monthlyAmount" type="number" class="form-control" id="monthlyAmount" required
+                    placeholder="Enter Monthly Amount" #monthlyAmount="ngModel" [(ngModel)]="rd.monthlyAmount"
+                    min="500">
+            </div>
+            <div class="alert alert-warning" *ngIf="monthlyAmount.dirty && monthlyAmount.invalid">
+                Enter The Amount. Minimum Amount is 500.
+            </div>
+            <div class="form-group">
+                <label for="tenure">Tenure(In Months)</label>
+                <input type="number" ngModel name="tenure" class="form-control" id="tenure" placeholder="Enter tenure"
+                    required #tenure="ngModel" min="1" [(ngModel)]="rd.tenure">
+            </div>
+            <div class="alert alert-warning" *ngIf="tenure.dirty && tenure.invalid">
+                Please Enter a valid tenure.
+            </div>
+            <div>
+                <button type="submit" [disabled]="applyForRdForm.invalid" class="btn btn-primary">Submit</button>
+                <button type="Reset" class="btn btn-secondary ml-1">reset</button>
+
+            </div>
+        </form>
+
+    </div>
+</div>

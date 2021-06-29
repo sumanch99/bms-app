@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import _swal from 'sweetalert';
+import swal from 'sweetalert';
 import { DebitCard } from '../model/debit-card.model';
 import { AtmService } from '../service/atm/atm.service';
 
@@ -27,12 +27,12 @@ export class AtmWithdrawComponent implements OnInit {
     this.atmService.withdrawUsingATM(this.debitCard, this.amount).subscribe(
       (response) => {
         console.log(response);
-        _swal("Congratulations!", "Successfully Withdrawn Rs." + this.amount + " from Account!", "success");
+        swal("Congratulations!", "Successfully Withdrawn Rs." + this.amount + " from Account!", "success");
         this.router.navigate(['atm-homepage']);
       },
       (error) => {
         console.log(error);
-        _swal("Failed!!", "Invalid Credentials", "error");
+        swal("Failed!!", "Invalid Credentials", "error");
         this.router.navigate(['atm-homepage']);
       }
     );

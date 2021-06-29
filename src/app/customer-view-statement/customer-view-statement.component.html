@@ -1,0 +1,45 @@
+<div class="container col-sm-9 mr-2 ">    
+    <h3 style="text-align: center;">List of Transactions</h3>
+    <form #acc="ngForm" (ngSubmit)="!acc.invalid && onClick()">
+        <div class="form-group">
+            <label for="accNo">Select Account:&nbsp; &nbsp; &nbsp;</label>
+            <select class=" form-group form-select mt-2" ngModel name="accNo" id="accNo" required
+                #accNo="ngModel" [(ngModel)]="accountNum">
+                <option selected>Select Account</option>
+                <option *ngFor="let account of accounts">
+                    {{account.accNo}}</option>
+            </select>
+            <button class="btn btn-primary">CHECK</button>
+        </div>
+    </form>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+        <table class="table table-striped mb-0">
+            <thead>
+                <tr>
+                    <th>Amount</th>
+                    <th>From Account</th>
+                    <th>To Account</th>
+                    <th>Transaction Type</th>
+                    <th>Date and Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of transactions">
+                    <td>{{transaction.amount}}</td>
+                    <td>{{transaction.fromAccount}}
+                    </td>
+                    <td *ngIf="transaction.toAccount===0"></td>
+                    <td *ngIf="transaction.toAccount!==0">{{transaction.toAccount}}</td>
+                    <td *ngIf="transaction.toAccount==0 && transaction.atmFlag==true">Debit Card</td>
+                    <td *ngIf="transaction.toAccount==0 && transaction.atmFlag==false && transaction.flag==true">Deposit
+                    </td>
+                    <td *ngIf="transaction.toAccount!==0">Transfer</td>
+                    <td *ngIf="transaction.toAccount==0 && transaction.atmFlag==false && transaction.flag==false">
+                        Withdraw</td>
+                    <td>{{transaction.date | date:'dd/MM/yyyy hh:mm:ss aa zzzz'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

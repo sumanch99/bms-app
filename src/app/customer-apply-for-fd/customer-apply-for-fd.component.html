@@ -1,0 +1,47 @@
+<div class="p-3" style="text-align: center;">
+    <h3><strong>APPLY FOR FD</strong></h3>
+</div>
+<div class="d-flex justify-content-center">
+    <div class="m-3 p-3 border border-info w-25">
+        <form #applyForFdForm="ngForm" (ngSubmit)="applyForFdForm.valid && onSubmit()">
+            <div class="form-group">
+                <label class="alert alert-success"><strong>Interest Rate Of FD is {{interestPlan.rate}}%</strong>
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="account_number">Select Account No</label>
+                <select ngModel name="account_number" class="form-control" required aria-label="Default select example"
+                    #account_number="ngModel" [(ngModel)]="fd.account_number">
+                    <option selected>Select Account Number</option>
+                    <option *ngFor="let account of accounts">{{account.accNo}}</option>
+                </select>
+            </div>
+            <div class="alert alert-warning" *ngIf="account_number.dirty && account_number.invalid">
+                Please select account.
+            </div>
+            <div class="form-group">
+                <label for="amount">AMOUNT</label>
+                <input ngModel name="amount" type="number" class="form-control" id="amount" required
+                    placeholder="Enter Amount" #amount="ngModel" [(ngModel)]="fd.amount" min="5000">
+            </div>
+            <div class="alert alert-warning" *ngIf="amount.dirty && amount.invalid">
+                Enter The Amount. Minimum Amount is 5000.
+            </div>
+            <div class="form-group">
+                <label for="tenure">Tenure(In Months)</label>
+                <input type="number" ngModel name="tenure" class="form-control" id="tenure" placeholder="Enter tenure"
+                    required #tenure="ngModel" min="1" [(ngModel)]="fd.tenure">
+            </div>
+            <div class="alert alert-warning" *ngIf="tenure.dirty && tenure.invalid">
+                Please Enter a valid tenure.
+            </div>
+            <div>
+                <button type="submit" [disabled]="applyForFdForm.invalid" class="btn btn-primary">Submit</button>
+                <button type="Reset" class="btn btn-secondary ml-1">reset</button>
+
+                
+            </div>
+        </form>
+
+    </div>
+</div>

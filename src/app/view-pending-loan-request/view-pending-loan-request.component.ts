@@ -27,6 +27,7 @@ export class ViewPendingLoanRequestComponent implements OnInit {
     )
   }
   onClickGrantLoan(loan: Loan) {
+    console.log(loan);
     this.dataService.patchGrantLoan(loan).subscribe(
       data => {
         console.log(data);

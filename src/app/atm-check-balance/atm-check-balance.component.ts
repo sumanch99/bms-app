@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import _swal from 'sweetalert'; import { DebitCard } from '../model/debit-card.model';
+import swal from 'sweetalert'; import { DebitCard } from '../model/debit-card.model';
 import { JSONResponse } from '../model/JSON-response.model';
 import { AtmService } from '../service/atm/atm.service';
 
@@ -25,12 +25,12 @@ export class AtmCheckBalanceComponent implements OnInit {
         const res =JSON.stringify(response); 
         const jsonResponse = JSON.parse(res);
         console.log(jsonResponse.data);
-        _swal(jsonResponse.message, "RS."+JSON.stringify(jsonResponse.data));
+        swal(jsonResponse.message, "RS."+JSON.stringify(jsonResponse.data));
         this.router.navigate(['atm-homepage']);
       },
       error => {
         console.log(error);
-        _swal("Failed!!", "Invalid Credentials", "error");
+        swal("Failed!!", "Invalid Credentials", "error");
         this.router.navigate(['atm-homepage']);
       }
     );

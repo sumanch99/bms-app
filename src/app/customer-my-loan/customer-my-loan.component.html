@@ -1,0 +1,38 @@
+<div class="container col-sm-8 mt-4 mb-5 mr-5">
+    <div class="p-3" style="text-align: center;">
+        <h3><strong>MY LOANS</strong></h3>
+    </div>
+    <div *ngIf="loans.length>0;then loanList else noRecord"></div>
+</div>
+<ng-template #loanList>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-striped mb-0">
+            <thead>
+                <tr>
+                    <th scope="col">Loan Id</th>
+                    <th scope="col">Loan Type</th>
+                    <th scope="col">Account Number</th>
+                    <th scope="col">Gurantor Acc. No.</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">Tenure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let loan of loans">
+                    <td scope="row">{{loan.loan_id}}</td>
+                    <td>{{loan.loanCode}}</td>
+                    <td>{{loan.accNo}}</td>
+                    <td>{{loan.gurantorAccNo}}</td>
+                    <td>{{loan.amount}}</td>
+                    <td>{{loan.startDate}}</td>
+                    <td>{{loan.tenure}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</ng-template>
+<ng-template #noRecord>
+    <div class="alert alert-danger"><strong>No Records Available!!!</strong></div>
+</ng-template>

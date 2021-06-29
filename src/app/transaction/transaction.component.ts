@@ -23,7 +23,6 @@ export class TransactionComponent implements OnInit {
         
           this.transactions = response.data;
           console.log(response);
-       
       }
     )
   }

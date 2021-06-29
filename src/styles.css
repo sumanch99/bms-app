@@ -1,7 +1,61 @@
-@media screen and (max-width: 768px) {
-    .body-content { padding-top: 110%; padding-bottom: 30%;}
-    .footer{
-        bottom: -50%;
-
+/* You can add global styles to this file, and also import other style files */
+/*@media only screen and (max-width: 375px) {
+    .mobile-view{
+        margin-bottom: 150%;
     }
-}
+  }
+@media only screen and (max-width: 760px) and (min-width:365px) {
+    .mobile-view{
+        margin-bottom: 100%;
+    }
+  }*/
+  .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+ 

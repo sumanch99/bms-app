@@ -1,0 +1,33 @@
+<div class="container mb-5 pb-2">
+    <div class=" d-flex justify-content-center ">
+        <div class="w-50 bg-mutedpt-5 pl-2 mr-5 mt-5 bg-light">
+            <div class="mt-3 ml-auto ">
+                <h4>Withdraw Your Money</h4>
+            </div>
+            <div class="mt-4 mx-3">
+                <form #withdraw="ngForm" (ngSubmit)="!withdraw.invalid && onSubmit()">
+                    <div class="form-group">
+                        <label for="accNo">Select Account:&nbsp; &nbsp; &nbsp;</label>
+                        <select class=" form-group form-select mt-2" ngModel name="accNo" id="accNo" required #accNo="ngModel"
+                        [(ngModel)]="accountNum">
+                            <option selected>Select Account</option>
+                            <option *ngFor="let account of accounts">
+                                {{account.accNo}}</option>
+                        </select>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="amount">Amount to be withdrawn:</label>
+                        <input ngModel name="amount" id="amount" type="number" class="form-control" required
+                            [(ngModel)]="withdrawAmount" #amount="ngModel">
+                    </div>
+                     <div>
+                        <button type="submit" [disabled]="withdraw.invalid" class="btn btn-primary" id="subButn">Withdraw</button>
+                     </div>
+                    
+        
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

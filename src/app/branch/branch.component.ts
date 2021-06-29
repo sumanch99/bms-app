@@ -1,4 +1,3 @@
-//To be used
 import { DataServiceService } from './../service/data/data-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Branch } from '../model/branch.model';

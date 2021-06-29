@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Account } from 'src/app/model/account.model';
+import { Admin } from 'src/app/model/admin.model';
 import { Branch } from 'src/app/model/branch.model';
 import { InterestPlans } from 'src/app/model/interest-plans.model';
 import { Loan } from 'src/app/model/loan.model';
@@ -14,6 +15,9 @@ export class DataServiceService {
   //private baseUrl:string='http://bmsapi.herokuapp.com/admin/';
   private baseUrl:string='http://localhost:8080/admin/';
   constructor(private http:HttpClient) { }
+  adminSetup(admin:Admin) {
+    return this.http.post<any>(this.baseUrl+'create-new-admin',admin);
+  }
   getCustomerList()
   {
     return this.http.get<any>(this.baseUrl+'customer-list');

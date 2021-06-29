@@ -1,0 +1,65 @@
+<div class="p-3 ml-3" style="text-align: center;">
+    <h3><strong>APPLY FOR LOAN</strong></h3>
+</div>
+<div class="d-flex justify-content-center mb-5">
+    <div class="ml-3 p-3 border border-info w-40">
+        <form #applyForLoanForm="ngForm" (ngSubmit)="applyForLoanForm.valid && onSubmit()">
+            <div class="form-group">
+                <label for="loanType">LOAN TYPE</label>
+                <select ngModel name="loanType" class="form-control" id="loanType" required #loanType="ngModel"
+                    aria-label="Default select example" [(ngModel)]="loan.loanCode">
+                    <option selected>Choose Loan type</option>
+                    <option *ngFor="let planObj of interestPlan">{{planObj.plan}}</option>
+                </select>
+            </div>
+            <div class="alert alert-warning" *ngIf="loanType.dirty && loanType.invalid">
+                Please select Loan Type.
+            </div>
+
+            <div class="form-group">
+                <label for="accNo">Select Account No</label>
+                <select ngModel name="accNo" class="form-control" required aria-label="Default select example"
+                    #accNo="ngModel" [(ngModel)]="loan.accNo">
+                    <option selected>Select Account Number</option>
+                    <option *ngFor="let account of accounts">{{account.accNo}}</option>
+                </select>
+            </div>
+            <div class="alert alert-warning" *ngIf="accNo.dirty && accNo.invalid">
+                Please select account.
+            </div>
+            <div class="form-group">
+                <label for="loanAmount">LOAN AMOUNT</label>
+                <input ngModel name="loanAmount" type="number" class="form-control" id="loanAmount" required
+                    placeholder="Enter Loan Amount" #loanAmount="ngModel" [(ngModel)]="loan.amount" min="50000">
+            </div>
+            <div class="alert alert-warning" *ngIf="loanAmount.dirty && loanAmount.invalid">
+                Enter The Loan Amount. Minimum Loan amount should be 50000.
+            </div>
+            <div class="form-group">
+                <label for="tenure">TENURE(In Years)</label>
+                <input type="number" ngModel name="tenure" class="form-control" id="tenure" placeholder="Enter tenure"
+                    required #tenure="ngModel" min="1" [(ngModel)]="loan.tenure">
+            </div>
+            <div class="alert alert-warning" *ngIf="tenure.dirty && tenure.invalid">
+                Please Enter a valid tenure.
+            </div>
+            <div class="form-group">
+                <label for="gurantorAccNo">GURANTOR'S ACC NO</label>
+                <input type="number" ngModel name="gurantorAccNo" class="form-control" id="gurantorAccNo"
+                    placeholder="Enter Gurantor's Account Number" required pattern="^[1-9]{1}[0-9]{9}$"
+                    #gurantorAccNo="ngModel" [(ngModel)]="loan.gurantorAccNo">
+            </div>
+            <div class="alert alert-warning" *ngIf="gurantorAccNo.dirty && gurantorAccNo.invalid">
+                Please Enter a valid account Number.
+            </div>
+
+            <div>
+
+                <button type="submit" [disabled]="applyForLoanForm.invalid" class="btn btn-primary">Submit</button>
+                <button type="Reset" class="btn btn-secondary ml-1">reset</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>

@@ -11,6 +11,8 @@ export class AdminAuthenticationService {
   static pwd:string='';
   provideHeaderString()
   {
+    console.log("It worked");
+    console.log("Username:"+AdminAuthenticationService.user+" Password:"+AdminAuthenticationService.pwd);
     let headerString = 'Basic '+btoa(AdminAuthenticationService.user+':'+AdminAuthenticationService.pwd);
     return headerString;
   }
@@ -19,6 +21,7 @@ export class AdminAuthenticationService {
     AdminAuthenticationService.user=admin;
     AdminAuthenticationService.pwd =password;
     let basicAuthenticationString ='Basic '+btoa(admin+':'+password)
+    console.log("basic str- "+basicAuthenticationString);
     let headers = new HttpHeaders(
     {
       Authorization:basicAuthenticationString

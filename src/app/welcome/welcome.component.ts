@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
+  welcome:boolean=false;
   constructor() { }
 
   ngOnInit(): void {
+    this.welcome=true;
+  }
+  getWelcome()
+  {
+    return this.welcome;
   }
 
 }
+

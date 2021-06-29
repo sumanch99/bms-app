@@ -1,5 +1,6 @@
 import { AdminAuthenticationService } from './../service/admin-authentication.service';
 import { Component, OnInit } from '@angular/core';
+import { CustomerAuthenticationService } from '../service/customer/customer-authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public isCollapsed = false;
-  constructor(public aut:AdminAuthenticationService) { }
+
+  constructor(public aut:AdminAuthenticationService,public custAuth:CustomerAuthenticationService) { }
 
   ngOnInit(): void {
   }

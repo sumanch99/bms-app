@@ -1,26 +1,33 @@
 <header class="header">
-    <nav class="navbar navbar-expand-sm navbar-light mb-2 max-width" style="background-color:rgba(0, 0, 0, 0.747);">
+    <nav class="navbar navbar-expand-sm navbar-light max-width" style="background-color: #0033a0;height: 70px;">
         <div class="container-fluid">
-            <a class="navbar-brand " style="color:white" href="#"> <img
+            <a class="navbar-brand " style="color:whitesmoke" href="#"> <img
                     src="https://library.kissclipart.com/20180905/kke/kissclipart-banking-clipart-investment-banking-clip-art-a11ec0af8fbedab7.png"
-                    alt="" width="30" height="24" class="d-inline-block align-text-top"> FEDERAL BANK OF INDIA
+                    alt="" width="30" height="24" class="d-inline-block align-text-top"><strong> UNIFIED BANK OF INDIA</strong>
             </a>
         </div>
         <ul class="navbar-nav ml-auto">
             <li><a class="nav-link" *ngIf="aut.logged()===true" routerLink="/admin-Logout"
-                    style="color: wheat;">Logout</a></li>
+                    style="color: white;">Logout</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li><a class="nav-link" *ngIf="custAuth.logged()===true" routerLink="/customer-logout"
+                    style="color: white;">Logout</a></li>
         </ul>
     </nav>
     
-    <div class="container col-sm-3 ml-1 fixed-left">
-        <div class="list-group" *ngIf="aut.logged()===true">
+    <!--Dashboard for Employee-->
+
+    <div class="sidebar" *ngIf="aut.logged()===true">
+        <div >
             <a routerLink='/listBranches' class="list-group-item list-group-item-action list-group-item-dark">Manage
                 Branches</a>
             <a routerLink='/new-Customer-Account'
                 class="list-group-item list-group-item-action list-group-item-dark">Create New Account</a>
             <a routerLink="/viewCustomer" class="list-group-item list-group-item-action list-group-item-dark">View
                 Customers</a>
-            <a routerLink="/manage-accounts" class="list-group-item list-group-item-action list-group-item-dark">Manage Accounts</a>
+            <a routerLink="/manage-accounts" class="list-group-item list-group-item-action list-group-item-dark">Manage
+                Accounts</a>
             <a routerLink='/allTransactions'
                 class="list-group-item list-group-item-action list-group-item-dark">Complete Transaction List</a>
             <a routerLink="/view-atm-requests" class="list-group-item list-group-item-action list-group-item-dark">Check
@@ -43,4 +50,38 @@
             </div>
         </div>
     </div>
+    <!--Employee Dashboard Ends-->
+
+    <!--Customer Dashboard-->
+    <div class="sidebar" *ngIf="custAuth.logged()===true">
+
+            <div class="dropdown">
+                <div class="list-group-item list-group-item-action list-group-item-dark dropdown-toggle"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Personal
+                    Banking</div>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a routerLink="/customer-deposit"
+                        class="list-group-item list-group-item-action list-group-item-dark">Deposit</a>
+                    <a routerLink="/customer-withdraw"
+                        class="list-group-item list-group-item-action list-group-item-dark">Withdraw</a>
+                    <a routerLink="/customer-check-balance"
+                        class="list-group-item list-group-item-action list-group-item-dark">Check Balance</a>
+                    <a routerLink="/customer-account-transfer"
+                        class="list-group-item list-group-item-action list-group-item-dark">Account To Account
+                        Transfer</a>
+                </div>
+            </div>
+            <a routerLink="/view-statement" class="list-group-item list-group-item-action list-group-item-dark">View
+                Statements</a>
+            <a routerLink="/apply-for-loan" class="list-group-item list-group-item-action list-group-item-dark">Apply
+                For Loan</a>
+            <a routerLink="/apply-for-fd" class="list-group-item list-group-item-action list-group-item-dark">Apply
+                For FD</a>
+            <a routerLink="/apply-for-rd" class="list-group-item list-group-item-action list-group-item-dark">Apply
+                For RD</a>
+            <a routerLink="/my-loans" class="list-group-item list-group-item-action list-group-item-dark">My Loans</a>
+            <a routerLink="/my-fd" class="list-group-item list-group-item-action list-group-item-dark">My FD</a>
+            <a routerLink="/my-rd" class="list-group-item list-group-item-action list-group-item-dark">My RD</a>
+        </div>
+    <!--Customer Dashboard Ends-->
 </header>

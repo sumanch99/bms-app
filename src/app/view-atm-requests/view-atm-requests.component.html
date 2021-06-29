@@ -39,14 +39,12 @@
             <thead>
                 <tr>
                     <th scope="col">Account Number(Debit Card Requested)</th>
-
                     <th></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let debitCardRequest of debitCardRequestList">
-
                     <td scope="row" id="data"><a
                             [routerLink]="['/view-account', debitCardRequest.accountNo]">{{debitCardRequest.accountNo}}</a>
                     </td>

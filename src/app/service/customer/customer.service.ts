@@ -5,6 +5,7 @@ import { Loan } from 'src/app/model/loan.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Customer } from 'src/app/model/cutomer.model';
+import { DebitCard } from 'src/app/model/debit-card.model';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,9 @@ export class CustomerService {
   getInterestRateList() {
     return this.http.get<any>(this.baseUrl + 'view-interest-plans');
   }
+  customerApplyForDebitCard(debitCard:DebitCard):Observable<any>{
+    return this.http.post(this.baseUrl+'apply-debit-card',debitCard);
+  }
   customerApplyLoan(loan:Loan){
     return this.http.post(this.baseUrl+'apply-loan',loan);
   }
@@ -57,6 +61,10 @@ export class CustomerService {
   }
   customerApplyForRd(recurringDeposit:RecurringDeposit){
     return this.http.post(this.baseUrl+'apply-rd',recurringDeposit);
+  }
+  viewDebitCards(accountNum:number)
+  {
+    return this.http.get(this.baseUrl+'view-debit-card/'+accountNum);
   }
   customerMyLoans(userId:any):Observable<any>{
     console.log("User Id:"+userId);

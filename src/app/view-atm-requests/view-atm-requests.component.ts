@@ -68,6 +68,7 @@ export class ViewAtmRequestsComponent implements OnInit {
     this.service.acceptDebitCardRequest(cardDetails.cardNo).subscribe(
       response=>{
         swal('Done!','Accepted debit card request successfully!','success');
+        this.showDebitCardDetails();
       },
       error=>{
         swal('Oops!','Debit card request cannot be accepted','error');

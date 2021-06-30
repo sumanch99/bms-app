@@ -1,4 +1,5 @@
 <div class="container col-sm-8 mt-4 mb-5 mr-5">
+    <div class="pb-5">
     <div class="p-2 d-flex justify-content-center">
         <h3><strong>MY FD</strong></h3>
     </div>
@@ -23,6 +24,7 @@
             <table class="table table-striped mb-0">
                 <thead>
                     <tr>
+                        <th scope="col">FD ID</th>
                         <th scope="col">Fd Account Number</th>
                         <th scope="col">Interest</th>
                         <th scope="col">Amount</th>
@@ -31,17 +33,20 @@
                         <th scope="col">Matured Amount</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> 
                     <tr *ngFor="let fixedDeposit of fixedDeposits">
-                        <td scope="row">{{fixedDeposit.account_number}}</td>
+                        <td scope="row">{{fixedDeposit.fixed_deposit_id}}</td>
+                        <td>
+                        {{fixedDeposit.account_number}}</td>
                         <td>{{fixedDeposit.interest}}</td>
                         <td>{{fixedDeposit.amount}}</td>
                         <td>{{fixedDeposit.start_date}}</td>
                         <td>{{fixedDeposit.tenure}}</td>
-                        <td>{{fixedDeposit.matured_amount}}</td>
+                        <td>{{fixedDeposit.matured_amount | number : '.2-2'}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+</div>
 </div>

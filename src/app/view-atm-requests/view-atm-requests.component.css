@@ -7,3 +7,11 @@
 table,td,tr{
     border: 1px solid black;
 }*/
+.my-custom-scrollbar {
+    position: relative;
+    height: 390px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }

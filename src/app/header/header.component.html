@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header mobile-view">
     <nav class="navbar navbar-expand-sm navbar-light max-width" style="background-color: #0033a0;height: 70px;">
         <div class="container-fluid">
             <a class="navbar-brand " style="color:whitesmoke" href="#"> <img
@@ -6,7 +6,7 @@
                     alt="" width="30" height="24" class="d-inline-block align-text-top"><strong> UNIFIED BANK OF INDIA</strong>
             </a>
         </div>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto" *ngIf="aut.logged()===true">
             <li><a class="nav-link" *ngIf="aut.logged()===true" routerLink="/admin-Logout"
                     style="color: white;">Logout</a></li>
         </ul>
@@ -19,6 +19,17 @@
     <!--Dashboard for Employee-->
 
     <div class="sidebar" *ngIf="aut.logged()===true">
+        <div class="dropdown">
+            <div class="list-group-item list-group-item-action list-group-item-dark dropdown-toggle"
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interest
+                Rates</div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a routerLink="/view-interest-plans"
+                    class="list-group-item list-group-item-action list-group-item-dark">View Interest Rates</a>
+                <a routerLink="/change-interest"
+                    class="list-group-item list-group-item-action list-group-item-dark">Modify Interest Rate</a>
+            </div>
+        </div>
         <div >
             <a routerLink='/listBranches' class="list-group-item list-group-item-action list-group-item-dark">Manage
                 Branches</a>
@@ -37,17 +48,7 @@
             <a routerLink="/view-pending-loan-request"
                 class="list-group-item list-group-item-action list-group-item-dark">Check Loan Request</a>
 
-            <div class="dropdown">
-                <div class="list-group-item list-group-item-action list-group-item-dark dropdown-toggle"
-                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interest
-                    Rates</div>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a routerLink="/view-interest-plans"
-                        class="list-group-item list-group-item-action list-group-item-dark">View Interest Rates</a>
-                    <a routerLink="/change-interest"
-                        class="list-group-item list-group-item-action list-group-item-dark">Modify Interest Rate</a>
-                </div>
-            </div>
+            
         </div>
     </div>
     <!--Employee Dashboard Ends-->
@@ -69,10 +70,14 @@
                     <a routerLink="/customer-account-transfer"
                         class="list-group-item list-group-item-action list-group-item-dark">Account To Account
                         Transfer</a>
+                    <a routerLink="/view-debit-cards"
+                    class="list-group-item list-group-item-action list-group-item-dark">View Debit Cards</a>
                 </div>
             </div>
             <a routerLink="/view-statement" class="list-group-item list-group-item-action list-group-item-dark">View
                 Statements</a>
+            <a routerLink="/apply-for-debit-card" class="list-group-item list-group-item-action list-group-item-dark">Apply
+                    For Debit Card</a>
             <a routerLink="/apply-for-loan" class="list-group-item list-group-item-action list-group-item-dark">Apply
                 For Loan</a>
             <a routerLink="/apply-for-fd" class="list-group-item list-group-item-action list-group-item-dark">Apply

@@ -1,0 +1,38 @@
+<div class="container col-sm-9 mr-2 ">
+    <h3 style="text-align: center;">My Debit Cards</h3>
+    <form #acc="ngForm" (ngSubmit)="!acc.invalid && onClick()">
+        <div class="form-group">
+            <label for="accNo">Select Account:&nbsp; &nbsp; &nbsp;</label>
+            <select class=" form-group form-select mt-2" ngModel name="accNo" id="accNo" required #accNo="ngModel"
+                [(ngModel)]="accountNum">
+                <option selected>Select Account</option>
+                <option *ngFor="let account of accounts">
+                    {{account.accNo}}</option>
+            </select>
+            <button class="btn btn-primary">CHECK</button>
+        </div>
+    </form>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+        <table class="table table-striped mb-0">
+            <thead>
+                <tr>
+                    <th>Card Number</th>
+                    <th>Pin Number</th>
+                    <th>CVV Number</th>
+                    <th>Account</th>
+                    <th>Approved</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let debitCard of debitCards">
+                    <td>{{debitCard.cardNo}}</td>
+                    <td>{{debitCard.pin}}</td>
+                    <td>{{debitCard.cvvNo}}</td>
+                    <td>{{debitCard.accountNo}}</td>
+                    <td>{{debitCard.approved}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -7,7 +7,7 @@
             <div class="form-group">
                 <label for="cardNumber">Card Number</label>
                 <input ngModel name="cardNumber" type="number" class="form-control" id="cardNumber"
-                    placeholder="Enter Card Number" required pattern="^[1-9][0-9]{11}$" #cardNumber="ngModel">
+                    placeholder="Enter Card Number" required pattern="^[1-9][0-9]{9}$" #cardNumber="ngModel">
             </div>
             <div class="alert alert-warning" *ngIf="cardNumber.dirty && cardNumber.invalid">
                 Invalid Card Number.

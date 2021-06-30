@@ -1,5 +1,7 @@
 <div class="container col-sm-9 mr-2">
     <h3 style="text-align: center;">Pending Loan Requests</h3>
+    <div *ngIf="pendingLoans.length>0;then loanList else noRecord"></div>
+    <ng-template #loanList>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-striped mb-0">
             <thead>
@@ -30,4 +32,8 @@
             </tbody>
         </table>
     </div>
+</ng-template>
+<ng-template #noRecord>
+    <div class="alert alert-danger"><strong>No Records Available!!!</strong></div>
+</ng-template>
 </div>

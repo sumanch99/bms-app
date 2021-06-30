@@ -1,4 +1,5 @@
 <div class="container col-sm-8 mt-4 mb-5 mr-5">
+    <div class="pb-5">
     <div class="p-2 d-flex justify-content-center">
         <h3><strong>MY RD</strong></h3>
     </div>
@@ -41,10 +42,11 @@
                         <td>{{recurringDeposit.monthlyAmount}}</td>
                         <td>{{recurringDeposit.startDate}}</td>
                         <td>{{recurringDeposit.tenure}}</td>
-                        <td>{{recurringDeposit.maturedAmount}}</td>
+                        <td>{{recurringDeposit.maturedAmount| number : '.2-2'}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+</div>
 </div>

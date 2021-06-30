@@ -3,7 +3,7 @@
     <div *ngIf="debitCardRequestList.length>0;then debitList else noRecord"></div>
     <ng-template #debitList>
         <div class="alert alert-success" *ngIf="alertFlag"><strong>{{successLabel}}</strong></div>
-        <table class="table table-responsive-sm w-auto">
+        <table class="table table-responsive-sm w-auto table-wrapper-scroll-y my-custom-scrollbar">
             <thead>
                 <tr>
                     <th scope="col">Account Number</th>

@@ -50,6 +50,8 @@ import { CustomerApplyForLoanComponent } from './customer-apply-for-loan/custome
 import { CustomerMyLoanComponent } from './customer-my-loan/customer-my-loan.component';
 import { CustomerMyRdComponent } from './customer-my-rd/customer-my-rd.component';
 import { CustomerMyfdComponent } from './customer-myfd/customer-myfd.component';
+import { ApplyForDebitCardComponent } from './apply-for-debit-card/apply-for-debit-card.component';
+import { CustomerViewDebitCardsComponent } from './customer-view-debit-cards/customer-view-debit-cards.component';
 
 
 @NgModule({
@@ -95,6 +97,8 @@ import { CustomerMyfdComponent } from './customer-myfd/customer-myfd.component';
     CustomerMyLoanComponent,
     CustomerMyRdComponent,
     CustomerMyfdComponent,
+    ApplyForDebitCardComponent,
+    CustomerViewDebitCardsComponent,
 
   ],
   imports: [

@@ -8,7 +8,7 @@ import { JSONResponse } from 'src/app/model/JSON-response.model';
   providedIn: 'root'
 })
 export class AtmService {
-private baseURl:string="http://bmsapi.herokuapp.com/atm-corner/"
+private baseURl:string="http://localhost:8080/atm-corner/"
   constructor(private http:HttpClient) { }
 
 withdrawUsingATM(debitCard:DebitCard,amount:number){
@@ -18,6 +18,7 @@ withdrawUsingATM(debitCard:DebitCard,amount:number){
 }
 
 checkBalanceUsingATM(debitCard:DebitCard){
+  console.log(debitCard);
   return this.http.post(this.baseURl+'check-balance',debitCard);
 }
 

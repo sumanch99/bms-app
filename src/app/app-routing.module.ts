@@ -42,6 +42,8 @@ import { ViewAtmRequestsComponent } from './view-atm-requests/view-atm-requests.
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CustomerApplyForLoanComponent } from './customer-apply-for-loan/customer-apply-for-loan.component';
 import { AdminSetupComponent } from './admin-setup/admin-setup.component';
+import { ApplyForDebitCardComponent } from './apply-for-debit-card/apply-for-debit-card.component';
+import { CustomerViewDebitCardsComponent } from './customer-view-debit-cards/customer-view-debit-cards.component';
 
 
 const routes: Routes = [
@@ -150,6 +152,16 @@ const routes: Routes = [
   },
   {
     path:'view-statement',component:CustomerViewStatementComponent,canActivate:[CustomerRouteGuardService]
+  },
+  {
+    path:'view-debit-cards',
+    component:CustomerViewDebitCardsComponent,
+    canActivate:[CustomerRouteGuardService]
+  },
+  {
+    path:'apply-for-debit-card',
+    component:ApplyForDebitCardComponent,
+    canActivate:[CustomerRouteGuardService]
   },
   {
     path:'apply-for-loan',component:CustomerApplyForLoanComponent,canActivate:[CustomerRouteGuardService]

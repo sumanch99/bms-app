@@ -43,7 +43,7 @@ export class CustomerApplyForFdComponent implements OnInit {
     this.customerService.customerApplyForFd(this.fd).subscribe(
       response => {
         console.log(response);
-        swal("Congratulations!", "FD Apply successful. Await Grant from Admin.", "success");
+        swal("Congratulations!", "FD Apply successful. Check MyFd for more details", "success");
       },
       error => {
         console.log(error);

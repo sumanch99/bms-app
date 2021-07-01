@@ -1,5 +1,5 @@
 <div class="container col-sm-9 mt-4 mb-5 mr-2 ">
-    <h3 style="text-align:left;">Pending Debit Card Requests</h3>
+    <h3 style="text-align:center;">Pending Debit Card Requests</h3>
     <div *ngIf="debitCardRequestList.length>0;then debitList else noRecord"></div>
     <ng-template #debitList>
         <div class="alert alert-success" *ngIf="alertFlag"><strong>{{successLabel}}</strong></div>

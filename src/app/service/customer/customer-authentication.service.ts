@@ -40,7 +40,16 @@ export class CustomerAuthenticationService {
   }
   logout()
   {
+    console.log("logout()");
     sessionStorage.removeItem('customerUserId');
+    this.http.get<any>('http://localhost:8080/log-out').subscribe((res)=>{
+    console.log("done");  
+    console.log(res);
+    },
+    (error)=>{
+      console.log("Error");
+      console.log(error);
+    });
   }
 }
 
